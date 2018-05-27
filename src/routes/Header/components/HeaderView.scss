@@ -8,9 +8,12 @@
   border: 1px solid rgba(23,23,77,.08);
   background-color: #0089ff;
   top: 0;
-  width: 100%;
+  width: calc(100%);
   z-index: 1;
   padding: 5px;
+  @media only screen and (max-device-width: 767px) {
+    // width: calc(100% - 25px);
+  }
 }
 
 .logoContainer{
@@ -39,6 +42,9 @@
   button{
     border-top-left-radius: 0px;
     border-bottom-left-radius: 0px;
+  }
+  @media only screen and (max-device-width: 767px) {
+    display: none;
   }
 }
 

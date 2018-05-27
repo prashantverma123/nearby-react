@@ -19,20 +19,41 @@ export default class SearchView extends React.Component {
 constructor(props, context) {
   super(props, context);
   this.showLocalFilterModal = this.showLocalFilterModal.bind(this)
-  this.props.search({type:'',keyword:''})
   this.showModal = this.showModal.bind(this);
   this.hideModal = this.hideModal.bind(this);
   this.loadFunc = this.loadFunc.bind(this);
   this.searchPlaces = this.searchPlaces.bind(this);
   this.searchPlacesFromModal = this.searchPlacesFromModal.bind(this);
-    this.state = {
+  this.getUserLocation = this.getUserLocation.bind(this);
+  this.state = {
       show: false,
       type:'',
+      keyword:'',
       category:'',
+      latitude:19.0022,
+      longitude:72.8416
     };
 }
 
 componentDidMount() {
+  this.getUserLocation()
+}
+
+
+getUserLocation(){
+  const location = window.navigator && window.navigator.geolocation
+
+    if (location) {
+      location.getCurrentPosition((position) => {
+        this.setState({
+          latitude: position.coords.latitude,
+          longitude: position.coords.longitude,
+        })
+        this.props.search(this.state);
+      }, (error) => {
+        this.setState({ latitude: 'err-latitude', longitude: 'err-longitude' })
+      })
+    }
 }
 
 showLocalFilterModal(){
@@ -50,6 +71,9 @@ showModal = () => {
 
  searchPlaces(data){
    this.setState({ type: data.type,category:data.category});
+   const {latitude,longitude} = this.state;
+   data['latitude'] = latitude;
+   data['longitude'] = longitude;
    this.props.search(data);
  }
 
@@ -60,13 +84,12 @@ showModal = () => {
    this.searchPlaces(data)
  }
 
- 
+
 
 render() {
   return (
 
   <div>
-  <filtercontainer className="filterclass"/>
   <Header  callbackFromParent={this.searchPlaces} className="header"></Header>
     <Row className="searchLayout">
     <Col  xs={6} md={3} className="filter"><Filter callbackFromParent={this.searchPlaces} ></Filter></Col>
@@ -122,7 +145,7 @@ const Modal = ({ handleClose, show, children,search }) => {
     <div className={showHideClassName}>
       <section className='modal-main'>
         <Filter callbackFromParent={search} ></Filter>
-        <button
+        <button className="modal-close-btn"
           onClick={handleClose}
         >
           Close

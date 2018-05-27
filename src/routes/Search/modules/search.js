@@ -10,15 +10,10 @@ import { CALL_API } from 'redux-api-middleware';
 // Actions
 // ------------------------------------
 export function search (params) {
-  console.log(params.keyword);
-  navigator.geolocation.getCurrentPosition(function(location) {
-  console.log(location.coords.latitude);
-  console.log(location.coords.longitude);
-  console.log(location.coords.accuracy);
+  console.log(params);
 
-});
 
-var endpoint = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=12.9682944,77.5869213&hasNextPage=true&nextPage()=true&rankby=distance&type=`+params.type+`&keyword=`+params.keyword+`&key=AIzaSyDcBeUlr4uNQaP9QUAsYK-oEyHgPlKtMCA`;
+var endpoint = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=`+ params.latitude+`,`+params.longitude+`&hasNextPage=true&nextPage()=true&rankby=distance&type=`+params.type+`&keyword=`+params.keyword+`&key=AIzaSyDcBeUlr4uNQaP9QUAsYK-oEyHgPlKtMCA`;
 return {
   [CALL_API]: {
     types: [REQUEST,RECEIVE,FAILURE],
