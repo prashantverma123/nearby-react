@@ -12,10 +12,18 @@ body {
   margin: 0;
   padding: 0;
   height: 100%;
+  font-family: 'Work Sans', sans-serif;
+  background-color:#f1f1f1
 }
 
 *,
 *:before,
 *:after {
   box-sizing: inherit;
+  font-family: 'Work Sans', sans-serif;
+}
+
+div{
+  margin: 0;
+  padding: 0;
 }

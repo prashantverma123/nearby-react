@@ -1,0 +1,74 @@
+
+.card{
+  width: 100%;
+  @media only screen and (min-device-width: 800px) {
+    flex-grow: 1;
+    // width: calc(100% * (1/4) - 10px - 1px);
+    max-width: calc(100% * (1/4) - 10px - 1px);
+    margin:10px 0 0 2%;
+    }
+  .card__inner{
+    background-color: #fff;
+    box-shadow: rgba(0,0,0,0.04706) 0 2px 3px 0;
+    // margin-bottom: 24px;
+    transition: all .3s ease;
+    border-radius: 2px;
+    overflow: hidden;
+    // height: 250px;
+  }
+
+  .card__image{
+    position: relative;
+    width: 100%;
+    background-color: #b5b6b8;
+    // padding-top: 40%;
+    overflow: hidden;
+    max-height: 250px;
+    height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    img{
+
+    }
+  }
+  .card__description {
+    padding: 12px;
+    min-height: 140px;
+    height: 140px;
+}
+
+.card__title {
+  color: #333;
+  font-weight: 600;
+  line-height: 1.2;
+  text-align: left;
+}
+.line-height-sm {
+    line-height: 24px !important;
+}
+.txt-truncate {
+    width: 230px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.margin-bottom-xs {
+    margin-bottom: 6px;
+}
+.card__location {
+    overflow: hidden;
+    color: #999;
+    margin-bottom: 16px;
+    text-align: left;
+}
+.font-m {
+    font-size: 13px !important;
+}
+.txt-secondary {
+    color: #666 !important;
+}
+.line-height-default {
+    line-height: 1 !important;
+}
+}

@@ -1,4 +1,5 @@
 import { applyMiddleware, compose, createStore as createReduxStore } from 'redux'
+import { apiMiddleware } from 'redux-api-middleware';
 import thunk from 'redux-thunk'
 import { browserHistory } from 'react-router'
 import makeRootReducer from './reducers'
@@ -29,7 +30,7 @@ const createStore = (initialState = {}) => {
     makeRootReducer(),
     initialState,
     composeEnhancers(
-      applyMiddleware(...middleware),
+      applyMiddleware(apiMiddleware,thunk),
       ...enhancers
     )
   )

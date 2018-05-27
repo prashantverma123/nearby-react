@@ -1,0 +1,54 @@
+.filterContainer{
+  background-color: #fff;
+  padding: 12px;
+  box-shadow: rgba(0,0,0,0.047) 0 2px 3px 0;
+  margin-left: 30px;
+  margin-top: 10px;
+  @media only screen and (max-device-width: 800px) {
+    margin-left: 0px;
+  }
+
+}
+
+.hideRadio{
+  display: none;
+}
+
+.categories{
+
+  .radio{
+    margin-left: 10px;
+    label{
+      display: flex;
+      align-items: center;
+      // justify-content: center;
+    }
+    input{
+      margin-right: 10px;
+    }
+  }
+}
+
+.labelContainer{
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  .reset{
+    margin-top: 4px;
+    color: #0089ff;
+    cursor: pointer;
+  }
+}
+
+.location{
+  input{
+    margin-left: 10px;
+    max-width: 250px;
+  }
+}
+.label{
+  display: flex;
+  margin-left: 10px;
+  font-size: 20px;
+  font-weight: 600;
+}
