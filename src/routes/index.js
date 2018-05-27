@@ -10,9 +10,8 @@ import SearchRoute from './Search'
 export const createRoutes = (store) => ({
   path        : '/',
   component   : CoreLayout,
-  indexRoute  : Home,
+  indexRoute : SearchRoute(store),
   childRoutes : [
-    CounterRoute(store),
     SearchRoute(store)
   ]
 })
