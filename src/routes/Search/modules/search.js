@@ -5,6 +5,7 @@ export const REQUEST = 'SEARCH_REQUEST'
 export const RECEIVE = 'SEARCH_RECEIVE'
 export const FAILURE = 'SEARCH_FAILURE'
 import { CALL_API } from 'redux-api-middleware';
+import {API_KEY} from '../../../constants/constant';
 
 // ------------------------------------
 // Actions
@@ -13,7 +14,7 @@ export function search (params) {
   console.log(params);
 
 
-var endpoint = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=`+ params.latitude+`,`+params.longitude+`&hasNextPage=true&nextPage()=true&rankby=distance&type=`+params.type+`&keyword=`+params.keyword+`&key=AIzaSyDcBeUlr4uNQaP9QUAsYK-oEyHgPlKtMCA`;
+var endpoint = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=`+ params.latitude+`,`+params.longitude+`&hasNextPage=true&nextPage()=true&rankby=distance&type=`+params.type+`&keyword=`+params.keyword+`&key=`+API_KEY;
 return {
   [CALL_API]: {
     types: [REQUEST,RECEIVE,FAILURE],

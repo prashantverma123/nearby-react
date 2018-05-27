@@ -12,6 +12,7 @@ import InfiniteScroll from 'react-infinite-scroller';
 import { ToastContainer, toast } from 'react-toastify';
 
 
+
 var FontAwesome = require('react-fontawesome');
 
 export default class SearchView extends React.Component {

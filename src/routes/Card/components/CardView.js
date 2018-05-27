@@ -2,7 +2,7 @@ import React from 'react'
 import './CardView.scss'
 import PropTypes from 'prop-types'
 import {Grid,Row,Col} from 'react-bootstrap'
-
+import {API_KEY} from '../../../constants/constant';
 export class Card extends React.Component {
 
 constructor(props, context) {
@@ -19,7 +19,7 @@ getImageUrl(photos){
   let maxheight = '250';
   //
   let photoreference = photo.photo_reference|| '';
-  let src = "https://maps.googleapis.com/maps/api/place/photo?maxheight="+maxheight+"&photoreference="+photoreference+"&key=AIzaSyDcBeUlr4uNQaP9QUAsYK-oEyHgPlKtMCA";
+  let src = "https://maps.googleapis.com/maps/api/place/photo?maxheight="+maxheight+"&photoreference="+photoreference+"&key="+API_KEY;
   return src
 }
   render(){
