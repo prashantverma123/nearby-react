@@ -117,6 +117,15 @@ render() {
         <img src="https://res4.nbstatic.in/static/images/no-result.svg" />
         <div> Sorry !! No search results found</div>
       </div>
+
+    }
+    {
+      this.props.list.status=='OVER_QUERY_LIMIT' &&
+      <div className="emptyState">
+        <img src="https://res4.nbstatic.in/static/images/no-result.svg" />
+        <div> Generate New API Key </div>
+      </div>
+
     }
     </Col>
 
